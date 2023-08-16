@@ -21,10 +21,26 @@ const videoSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase();
+    builder
+
+      .addCase(fetchVideos?.pending, (state) => {
+        (state.isError = false), (state.isLoading = true);
+      })
+
+      .addCase(fetchVideos?.fulfilled, (state, action) => {
+        (state.isError = false),
+          (state.isLoading = false),
+          (state.videos = action.payload);
+      })
+      .addCase(fetchVideos?.rejected, (state, action) => {
+        (state.isError = true),
+          (state.isLoading = false),
+          (state.videos = []),
+          (state.errorMessage = action.errorMessage?.message);
+      });
   },
 });
 
 // export const {} = videoSlice.actions;
 
-export default videoSlice.reducer;
+export default videoSlice.reducer; //i am not manually dispatch so export reducer
