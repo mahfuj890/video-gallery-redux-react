@@ -12,8 +12,9 @@ const initialState = {
 //Fetch videos
 export const fetchRelatedVideos = createAsyncThunk(
   "related/fetchVideos",
-  async () => {
-    const videos = await getRelatedVideos();
+  async (tags, id) => {
+   
+    const videos = await getRelatedVideos(tags, id);
     return videos;
   }
 );

@@ -1,6 +1,7 @@
 import { axiosInstance } from "../../../utlis/axios/axios";
 
 export const getRelatedVideos = async (tags, id) => {
+  console.log("getRelatedVideos - id:", id)
   const queryString =
     tags?.length > 0
       ? tags?.map((item) => `tags_like=${item}`).join("&") +
@@ -9,3 +10,4 @@ export const getRelatedVideos = async (tags, id) => {
   const response = await axiosInstance.get(`/videos?${queryString}`);
   return response?.data;
 };
+
