@@ -29,4 +29,4 @@ const filterSlice = createSlice({
 // export const {} = videoSlice.actions;
 
 export default filterSlice.reducer; //i am not manually dispatch so export reducer
-export const { tagSelected, tagRemoved, searched } = filterSlice.reducer;
+export const { tagSelected, tagRemoved, searched } = filterSlice.actions;
