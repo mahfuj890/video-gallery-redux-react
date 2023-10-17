@@ -15,9 +15,13 @@ export default function VideGrid() {
     (state) => state.videos
   );
 
+  const { selectedTags, searchText } = useSelector(
+    (state) => state.filterSlice
+  );
+
   useEffect(() => {
-    dispatch(fetchVideos());
-  }, [dispatch]);
+    dispatch(fetchVideos({ selectedTags, searchText }));
+  }, [dispatch, selectedTags, searchText]);
 
   //Render Conditions
   let content;
