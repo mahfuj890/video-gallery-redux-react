@@ -9,5 +9,5 @@ export const store = configureStore({
 
   //for some reason need middleware to automatic task
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware.concat(apiSlice.middleware),
+    getDefaultMiddleware().concat(apiSlice.middleware),
 });
