@@ -7,10 +7,13 @@ export const apiSlice = createApi({
   }),
   endpoints: (builder) => ({
     getVideos: builder.query({
-      query: (params) => "/videos", //string or function(recommended) - params.objectName if you pass object
+      query: () => "/videos", //string or function(recommended) - params.objectName if you pass object
+    }),
+    getSingleVideo: builder.query({
+      query: (videoId) => `/videos/${videoId}`, 
     }),
   }),
 });
 
 //automatic generate hooks based on endpoints names
-export const { useGetVideosQuery } = apiSlice;
+export const { useGetVideosQuery,useGetSingleVideoQuery } = apiSlice;
