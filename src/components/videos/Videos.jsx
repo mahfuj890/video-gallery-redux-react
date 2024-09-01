@@ -5,7 +5,9 @@ import Video from "./Video";
 
 export default function Videos() {
   const { data, isLoading, isError, isFetching, isSuccess, error } =
-    useGetVideosQuery({ test: 1 }); // you can pass parameter but one,if you have multiple then pass object
+    useGetVideosQuery({ test: 1 },{
+       
+    }); // you can pass parameter but one,if you have multiple then pass object
 
   // decide what to render
   let content = null;
